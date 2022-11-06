@@ -5,9 +5,10 @@ const path = require('path')
 // app.use(express.static('public/car.jpg'))
 
 // app.use('/static', express.static('public'))
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
+//create server
+ app.get('/', (req, res) => {
+ res.send('Hello World!')
+ })
 
 //Dynamic Image and Not Found Error
 app.get('/dynamicimage', (req, res) => {
@@ -31,6 +32,12 @@ app.get('/dynamicimage', (req, res) => {
 //   let imagepath = path.join(__dirname, 'ironman.jpg');
 //   res.sendFile(imagepath)
 // })
+
+//Render Image
+app.get('/pic', (req, res) => {
+  let ImagePath = path.join(__dirname,'car.jpg');
+  res.sendFile(ImagePath)
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
